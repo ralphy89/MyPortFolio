@@ -1,0 +1,91 @@
+<html>
+<!--&lt;!&ndash;[if lt IE 7]>-->
+<!--<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if IE 7]>-->
+<!--<html class="no-js lt-ie9 lt-ie8"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if IE 8]>-->
+<!--<html class="no-js lt-ie9"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if gt IE 8]>      -->
+<!--<html class="no-js"> &lt;!&ndash;<![endif]&ndash;&gt;-->
+
+<!--<html>-->
+{% load static %}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Main</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <script src="{% static 'js/main.js' %}"></script>-->
+
+    <style>
+        .text-slider-items {
+            display: none;
+            visibility: hidden;
+        }
+    </style>
+    <!-- Add this script for successful
+        implementation of typed.js  -->
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+
+        <div class="hero-container" data-aos="fade-in">
+            <h1>{{name}} {{lastname}}</h1>
+            <p>
+                I'm
+                <span class="text-slider-items">
+                        developer, Freelancer, IT Engineer
+                </span>
+                <i class="text-slider text-success "> </i>
+                <p>
+                    {% include 'app/download_btn.html' %}
+                </p>
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <!-- End Hero -->
+    <script>
+        if ($(".text-slider").length === 1) {
+
+            var typed_strings =
+                $(".text-slider-items").text();
+
+            var typed = new Typed(".text-slider", {
+                strings: typed_strings.split(", "),
+                typeSpeed: 50,
+                loop: true,
+                backDelay: 900,
+                backSpeed: 30,
+            });
+        }
+    </script>
+    {% block content %}
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        {% include 'app/about.html' %}
+
+        <!-- ======= Skills Section ======= -->
+        {% include 'app/skills.html' %}
+
+        <!-- ======= Resume Section ======= -->
+        {% include 'app/resume.html' %}
+
+        <!-- ======= portfolio Section ======= -->
+        {% include 'app/portfolio.html' %}
+
+        <!-- ======= contact Section ======= -->
+        {% include 'app/contact.html' %}
+
+    </main><!-- End #main -->
+    {% endblock content %}
+
+
+</body>
+</html>

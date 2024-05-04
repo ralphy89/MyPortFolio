@@ -1,0 +1,135 @@
+{% load static %}
+<!html lang="en">
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>main</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" integrity="sha512-T+KoG3fbDoSnlgEXFQqwcTC9AdkFIxhBlmoaFqYaIjq2ShhNwNao9AKaLUPMfwiBPL0ScxAtc+UYbHAgvd+sjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc-2/dist/css/coreui.min.css" rel="stylesheet"
+          integrity="sha384-3FeBAJJer0hMkSUFY0O4q1U6Di0w7FL7dmFaei7DXhirO8frz7qUqV5r1c2WWezh" crossOrigin="anonymous">
+<!--        <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Option 1: Include in HTML -->
+<!--    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">-->
+    <!-- Template Main CSS File -->
+
+</head>
+    <body>
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none" id="mobile-nav-toggle" onclick=""></i>
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/C4E03AQEkwIZB67UjJw/profile-displayphoto-shrink_800_800/0/1648899164705?e=1716422400&v=beta&t=ASW-dN7HaokBRnImMA0Rb4ZZf54fDGDg3RbwEikZoVY" alt="" class="img-fluid rounded-circle">
+
+                <h1 class="text-light"><a class="nav-link scrollto" href="#about">{{name}} {{lastname}}</a></h1>
+                <div class="social-links mt-3 text-center">
+                    <a href="https://twitter.com/89Zone" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.facebook.com/Ralphydumera?mibextid=ZbWKwL" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/ralphydumera?igsh=N2RsNG0zbzR5dzNh" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/ralph-djino-dumera-76b162138" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                    <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+                    <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                    <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-medal"></i> <span>Skills</span></a></li>
+
+                    <!--                    <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>-->
+<!--                    <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
+                    <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+
+                    {% include 'app/download_btn.html' %}
+
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>89Zone</span></strong>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+    </body>
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/typed.js/typed.umd.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!--<script src="{% static 'vendor/aos/aos.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!--<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js" integrity="sha512-S/H9RQ6govCzeA7F9D0m8NGfsGf0/HjJEiLEfWGaMCjFzavo+DkRbYtZLSO+X6cZsIKQ6JvV/7Y9YMaYnSGnAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+<!--<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js" integrity="sha512-Q4MHJkk3u8P63v1aX0I7jvo5AoMFi53HbxUBhURp8x7xrqD+nsHZrbBEQVObpqE+MAAVB/Ye9ZlKkM44a1q9WA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.js" integrity="sha512-jxiYWjQR3qfTq6BZWUdL4vdBi8pX7t1tQtUuVDxSwADM2WwAbXccNy5+Dh4d93NMTGWh6UWRdpxS6l1ks7L2tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>-->
+
+
+<!-- Template Main JS File -->
+<script src="{% static './js/main.js' %}"></script>
+
+<!-- Import typed.min.js file from typed.js folder -->
+<script src="{% static 'typed.js-master/lib/typed.min.js' %}"></script>
+
+<!-- Add jquery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc-2/dist/js/coreui.bundle.min.js"
+                integrity="sha384-IdPyRVtf8Bx60pCtleeuTZDV17yrPAvxrtQd8mS4v/MzrR5XB9G+9uonSYVJ1MZK"
+                crossOrigin="anonymous"></script>
+
+<script>
+    AOS.init();
+</script>
+</html>
+

@@ -1,0 +1,76 @@
+
+<section id="skills" class="skills section-bg">
+    <div class="container">
+
+        <div class="section-title">
+            <h2> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAs1JREFUSEvtlmmoTlEUhp+LkCRJSYYMZUxRRJIpJMMPJDJ1TaGI/EERIRlSSmRIlPEHkSEhU/hBhoQoPxCFIkMZMsR+9V6dju+c7xzfrZuy6qtv73XWetde611r7zKqSMqqCJcswC2A8liAj4Fd3pNO30RFOn2TKFmA+wLnYx4uAtqXXAj6PjF9P+//B/6dgX8m1W+AW8ARYKPDnwOMALoA9b1XaTU+DCwAtgM/Ehij7E0D1joQka4kcjUDvgAvM/Z8I6Am8LRU4Kh9Z2Cs26e9FffdbvuBOxmDyzRA5Ks5sBkYWsTxIWA28KJYAFlY3RM4CdSzs+8m2A2vu5pY1bx+BQwIdb5dSqpbA9cjbF0DrAbeAjXs+BvQAFgS9ud5T3wQy58ngRc78VFguI0nAnsijqaY4Tsje3NDkBu83mGWF8ROA+4I3LXVXmBCxEN14JHXLcNplf4KOQ0MdFCNk7ohDXhRaItV9tbKQPq+iW+rFdYpxbqNnnktTlzx/0nA7kJHTgM+AIwBHgJtwgmWAgtDjWsn1O2zA10JvAfqApvM8j9M0oBPAYOAS0Bvk+kYMDgBWHwYBYhs14Bu4XcikHNY3hOrJ0e6zp1srImk1uofc3YmgA0xqFT3gA7AwfB/dF7g9SFl8z0u1S4f7GAbMD3mbGsYGjO9p37XZaK+1tzWjM+Vap1AqZJMjjx1RBwR6Kp13SPl0NYsTzn91yA5mxe4VgB8AmjoaxAo3a/DrH4AiNH77HB8SPFioB3Q1BNLGRLL1Q1f8wLr+xnAFhuKMLp3NbU+xpzVARoCxx2g1Op79X9BKTa5ZCTjcbZ+B6jG54Cbvv40GjUwpoaaKgCJglXKEyULsGbyusgcTvOnR4LKsCzlwfDLPgtwBVAP11J9rJEZFT0U1MfLs97JeYArgNQuvYC2ntF6CFwObfMpLRVx3d8A5/FfUo0rBSju5CfK0Y4f8bsqUwAAAABJRU5ErkJggg=="/>
+                Skills </h2>
+            <p>
+                <h5>
+                    Here, you'll find a comprehensive list of my technical abilities,
+                    from programming languages to development tools and frameworks.
+                </h5>
+            </p>
+        </div>
+
+        <div class="row skills-content">
+
+            <div class="col-lg-6" data-aos="fade-up">
+                {% for skill in column1 %}
+                    <div class="progress">
+                        <span class="skill"><strong>{{skill.technology}} <i class="val">{{skill.percentage}}%</i></strong></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" style="width: {{skill.percentage}}%" role="progressbar" aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+                {% for skill in column2 %}
+                    <div class="progress">
+                        <span class="skill"><strong>{{skill.technology}} <i class="val">{{skill.percentage}}%</i></strong></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" style="width: {{skill.percentage}}%" role="progressbar" aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="frameworks" class="frameworks section-bg">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Frameworks/Technologies</h2>
+            <p><h5>Here are the frameworks and technologies I'm proficient in:</h5></p>
+        </div>
+
+        <div class="row" data-aos="zoom-out-up"
+             data-aos-duration="2000">
+            {% for framework in frameworks %}
+                <div class="my-card col-lg-4 col-md-6 mt-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                {{framework.boxicons|safe}}
+                                <h4 class="card-title">{{framework.framework}}</h4>
+                                <p class="card-text">{{framework.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</section>
+
+
