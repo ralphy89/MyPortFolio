@@ -841,11 +841,10 @@ section {
 
 .testimonials .testimonial-item p {
   font-style: italic;
-  margin: 0 15px 15px 15px;
   padding: 20px;
   background: #fff;
   position: relative;
-  margin-bottom: 35px;
+  margin: 0 15px 35px;
   border-radius: 6px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1135,10 +1134,12 @@ section {
 }
 
 #footer .copyright {
+  /*display: none;*/
   text-align: center;
 }
 
 #footer .credits {
+  /*display: none;*/
   padding-top: 5px;
   text-align: center;
   font-size: 13px;
@@ -1147,6 +1148,7 @@ section {
 
 @media (max-width: 1199px) {
   #footer {
+    display: none;
     position: static;
     width: auto;
     padding-right: 20px;
