@@ -6,6 +6,10 @@
   }],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/myPortFolio/static/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "myPortFolio/wsgi.py"
     }
