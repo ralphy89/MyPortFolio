@@ -108,13 +108,13 @@ def contact(request):
             message = data.get('message')
 
             # Save the message to the database
-            Message.objects.create(
-                idUser=1,
-                name=name,
-                email=email,
-                subject=subject,
-                message=message
-            )
+            # Message.objects.create(
+            #     idUser=1,
+            #     name=name,
+            #     email=email,
+            #     subject=subject,
+            #     message=message
+            # )
 
             # Run the sendEmail function asynchronously
             asyncio.run(sendEmail(name, email, subject, message))
