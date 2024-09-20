@@ -95,6 +95,7 @@ async def sendEmail(name_, email_, subject_, message_):
         await smtp.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
         await smtp.sendmail(email_from, recipient_list, msg)
 
+
 def contact(request):
     if request.method == "POST":
         try:
