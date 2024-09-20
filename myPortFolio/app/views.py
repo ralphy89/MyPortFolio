@@ -1,11 +1,14 @@
+import asyncio
 import json
 
 import django.shortcuts
+from aiosmtplib import SMTP
+from asgiref.sync import async_to_sync
 from django.conf import settings
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from datetime import date
 
 from django.template.loader import render_to_string
@@ -57,7 +60,7 @@ def main(request):
     return render(request, "app/main.html", context)
 
 
-def sendEmail(name_, email_, subject_, message_):
+async def sendEmail(name_, email_, subject_, message_):
     # Extract values
     name = name_
     email = email_
@@ -65,19 +68,32 @@ def sendEmail(name_, email_, subject_, message_):
     message = message_
 
     # Render HTML template with dynamic values
-    html_message = render_to_string('app//email_template.html',
-                                    {'name': name, 'email': email, 'subject': subject, 'message': message})
+    html_message = render_to_string('app/email_template.html', {
+        'name': name,
+        'email': email,
+        'subject': subject,
+        'message': message
+    })
 
     # Create plain text version of the email
     text_content = strip_tags(html_message)
 
-    # Send email
+    # Set up email parameters
     email_from = settings.EMAIL_HOST_USER
     recipient_list = ["ralphdumera00@gmail.com"]
-    msg = EmailMultiAlternatives(f"New message from your PORT-FOLIO - {subject}", text_content, email_from, recipient_list)
-    msg.attach_alternative(html_message, "text/html")
-    msg.send()
 
+    # Create the email message
+    msg = f"Subject: New message from your PORT-FOLIO - {subject}\n" \
+          f"From: {email_from}\n" \
+          f"To: {', '.join(recipient_list)}\n" \
+          f"MIME-Version: 1.0\n" \
+          f"Content-Type: text/html; charset=\"utf-8\"\n\n" \
+          f"{html_message}"
+
+    # Send email asynchronously
+    async with SMTP(hostname=settings.EMAIL_HOST, port=settings.EMAIL_PORT, use_tls=settings.EMAIL_USE_TLS) as smtp:
+        await smtp.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        await smtp.sendmail(email_from, recipient_list, msg)
 
 def contact(request):
     if request.method == "POST":
@@ -91,6 +107,7 @@ def contact(request):
             subject = data.get('subject')
             message = data.get('message')
 
+            # Save the message to the database
             Message.objects.create(
                 idUser=1,
                 name=name,
@@ -99,10 +116,12 @@ def contact(request):
                 message=message
             )
 
-            sendEmail(name, email, subject, message)
+            # Run the sendEmail function asynchronously
+            asyncio.run(sendEmail(name, email, subject, message))
 
-            return HttpResponse(json.dumps({"result": "ok"}), content_type="application/json")
+            return JsonResponse({"result": "ok"})
         except Exception as e:
-            return HttpResponse(json.dumps({"error": str(e)}), status=400, content_type="application/json")
+            print(str(e))
+            return JsonResponse({"error": str(e)}, status=400)
     else:
-        return HttpResponse(json.dumps({"error": "Method not allowed"}), status=405, content_type="application/json")
+        return JsonResponse({"error": "Method not allowed"}, status=405)

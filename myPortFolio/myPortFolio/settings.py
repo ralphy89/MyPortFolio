@@ -135,10 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_HOST_USER = 'forprojectzone@gmail.com'
 EMAIL_HOST_PASSWORD = 'jrfx ofil lbfi hsga'
-
 # password = 'neko gmhk qsat chub'  # Use an app password generated from Gmail settings
 # sender_email = 'secure.instagram.meta.facebook@gmail.com'
 # smtp_host = 'smtp.gmail.com'
