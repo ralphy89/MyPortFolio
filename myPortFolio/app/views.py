@@ -116,10 +116,10 @@ def contact(request):
             #     subject=subject,
             #     message=message
             # )
-
+            print("before sent")
             # Run the sendEmail function asynchronously
             asyncio.run(sendEmail(name, email, subject, message))
-
+            print("after sent")
             return JsonResponse({"result": "ok"})
         except Exception as e:
             print(str(e))
