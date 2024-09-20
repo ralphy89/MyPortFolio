@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from myPortFolio.myPortFolio import settings
+from . import settings
 
 urlpatterns = [
     path('', include('app.urls')),
