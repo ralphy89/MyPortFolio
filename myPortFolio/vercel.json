@@ -7,7 +7,7 @@
   "routes": [
     {
       "src": "/staticfiles/(.*)",
-      "dest": "/myPortFolio/staticfiles/$1"
+      "dest": "/staticfiles/$1"
     },
     {
       "src": "/(.*)",
