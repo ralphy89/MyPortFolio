@@ -9,5 +9,6 @@
       "src": "/(.*)",
       "dest": "myPortFolio/wsgi.py"
     }
-  ]
+  ],
+  "outputDirectory": "staticfiles"
 }
