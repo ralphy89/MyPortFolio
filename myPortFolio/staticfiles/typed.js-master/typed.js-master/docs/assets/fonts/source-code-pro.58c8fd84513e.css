@@ -1,0 +1,23 @@
+@font-face{
+    font-family: 'Source Code Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url("EOT/SourceCodePro-Regular.249ec80c4dcd.eot") format('embedded-opentype'),
+         url("WOFF2/TTF/SourceCodePro-Regular.ttf.08e287a687eb.woff2") format('woff2'),
+         url("WOFF/OTF/SourceCodePro-Regular.otf.7e5b1b977ba8.woff") format('woff'),
+         url("OTF/SourceCodePro-Regular.4889cf478182.otf") format('opentype'),
+         url("TTF/SourceCodePro-Regular.cc35f676db8d.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Code Pro';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    src: url("EOT/SourceCodePro-Bold.fc3d80c21984.eot") format('embedded-opentype'),
+         url("WOFF2/TTF/SourceCodePro-Bold.ttf.4cafa8b3b964.woff2") format('woff2'),
+         url("WOFF/OTF/SourceCodePro-Bold.otf.b78a2d326580.woff") format('woff'),
+         url("OTF/SourceCodePro-Bold.c1cf2d6a3396.otf") format('opentype'),
+         url("TTF/SourceCodePro-Bold.372cbdba546c.ttf") format('truetype');
+}
