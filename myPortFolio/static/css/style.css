@@ -28,6 +28,7 @@ body {
    transition: background-color 0.3s;
    cursor: pointer;
    font-weight: lighter;
+   margin-bottom: 20px;
  }
 
 .download-button:hover {
