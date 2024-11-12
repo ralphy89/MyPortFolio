@@ -34,7 +34,7 @@ const checkField = () => {
     sendMsg();
   } else {
     alert("You're trying to send an empty message, please fill the form!!")
-    return false;
+    document.getElementById("empty-msg").style.display = "inline-block";
   }
 }
 function sendMsg() {

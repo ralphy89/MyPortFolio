@@ -33,8 +33,8 @@ const checkField = () => {
   if(name && email && subject && msg){
     sendMsg();
   } else {
+    document.getElementById("empty-msg").style.display = "inline-block";
     alert("You're trying to send an empty message, please fill the form!!")
-    return false;
   }
 }
 function sendMsg() {
