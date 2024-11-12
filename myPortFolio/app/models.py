@@ -1,4 +1,6 @@
+from DateTime import DateTime
 from django.db import models
+from multiselectfield import MultiSelectField
 
 
 # Create your models here.
@@ -48,7 +50,7 @@ class Resume(models.Model):
     profile_1 = models.TextField()
 
 
-class Education (models.Model):
+class Education(models.Model):
     id = models.IntegerField(primary_key=True)
     degree = models.CharField(max_length=200)
     start_year = models.DateField()
@@ -71,6 +73,26 @@ class Message(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200)
     message = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
+
+
+MY_CHOICES2 = ((1, 'Yes'),)
+
+
+class Experience(models.Model):
+    id = models.IntegerField(primary_key=True, auto_created=True)
+    titre = models.CharField(max_length=200)
+    type = models.CharField(max_length=200)
+    organisation = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    start_year = models.DateField()
+    present = MultiSelectField(choices=MY_CHOICES2, default='Yes', max_choices=1, max_length=1)
+
+    end_year = models.DateField(null=True)
+    description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

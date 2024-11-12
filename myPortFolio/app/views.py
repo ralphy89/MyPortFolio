@@ -15,7 +15,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 from . import models
-from .models import Skill, User, Framework, Resume, Education, Message
+from .models import Skill, User, Framework, Resume, Education, Message, Experience
 
 
 # Create your views here.
@@ -33,10 +33,9 @@ def main(request):
     resume = Resume.objects.get(id=1)
     educations = Education.objects.filter(Q(id=1)).values()
     frameworks = Framework.objects.all()
-
+    experiences = Experience.objects.all()
     start_year = date.fromisoformat(str(educations[0]['start_year'])).year
     end_year = date.fromisoformat(str(educations[0]['end_year'])).year
-
     context = {
         'name': user.name,
         'lastname': user.lastname,
@@ -54,7 +53,9 @@ def main(request):
         'column2': column2,
         'frameworks': frameworks,
         'resume': resume,
-        'educations': educations
+        'educations': educations,
+        'experiences': experiences,
+        'present': models.MY_CHOICES2[0][1]
     }
 
     return render(request, "app/main.html", context)
