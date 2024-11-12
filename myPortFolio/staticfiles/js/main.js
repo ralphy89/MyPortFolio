@@ -31,6 +31,8 @@ const checkField = () => {
   const msg = document.getElementById("message").value;
 
   if(name && email && subject && msg){
+    document.getElementById("empty-msg").style.display = null;
+
     sendMsg();
   } else {
     document.getElementById("empty-msg").style.display = "inline-block";
