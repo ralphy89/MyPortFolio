@@ -24,6 +24,19 @@ function getCookie(name) {
   return cookieValue;
 }
 
+const checkField = () => {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const msg = document.getElementById("message").value;
+
+  if(name && email && subject && msg){
+    sendMsg();
+  } else {
+    alert("You're trying to send an empty message, please fill the form!!")
+    return false;
+  }
+}
 function sendMsg() {
   document.getElementById("loading").style.display = "inline-block";
   const name = document.getElementById("name").value;

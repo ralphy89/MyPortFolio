@@ -116,6 +116,7 @@ def contact(request):
             #     subject=subject,
             #     message=message
             # )
+            print([name, email, subject, message])
             print("before sent")
             # Run the sendEmail function asynchronously
             asyncio.run(sendEmail(name, email, subject, message))
